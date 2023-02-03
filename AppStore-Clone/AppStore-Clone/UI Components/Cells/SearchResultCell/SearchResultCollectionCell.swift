@@ -9,6 +9,7 @@ import UIKit
 
 class SearchResultCollectionCell: UICollectionViewCell {
     
+    //MARK: - Properties
     static let reuseIdentifier = "SearchResultCollectionCell"
     
     let imageView: UIImageView = {
@@ -22,43 +23,61 @@ class SearchResultCollectionCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let name = UILabel()
-        name.text = "APP NAME"
+        name.text = "Instagram"
+        name.textColor = .black
+        name.font = .systemFont(ofSize: 18, weight: .regular)
         return name
     }()
     
     let categoryLabel: UILabel = {
         let category = UILabel()
         category.text = "Photos & Videos"
+        category.textColor = .black
+        category.font = .systemFont(ofSize: 16, weight: .regular)
         return category
     }()
     
     let ratingsLabel: UILabel = {
         let ratings = UILabel()
         ratings.text = "9.26M"
+        ratings.textColor = .lightGray
+        ratings.font = .systemFont(ofSize: 14, weight: .regular)
         return ratings
     }()
     
     let getButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.layer.cornerRadius = 4
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.backgroundColor = .init(white: 0.98, alpha: 1)
+        button.setTitleColor(.link, for: .normal)
+        button.layer.cornerRadius = 12
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .heavy)
+        button.backgroundColor = .init(white: 0.96, alpha: 1)
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         return button
     }()
     
+    lazy var screenshot1ImageView = self.createScreenshotImageView()
+    lazy var screenshot2ImageView = self.createScreenshotImageView()
+    lazy var screenshot3ImageView = self.createScreenshotImageView()
+
+    //MARK: - Lifecycles
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = .green
-        
-        autoLayoutTopStackView()
+                
+        autoLayoutFullStackView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - UI Helpers
+    
+    private func createScreenshotImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .black
+        imageView.layer.cornerRadius = 4
+        return imageView
     }
     
     @discardableResult
@@ -75,21 +94,30 @@ class SearchResultCollectionCell: UICollectionViewCell {
         return stackView
         
     }
-    private func autoLayoutTopStackView() {
+    private func autoLayoutFullStackView() {
         let stackView = UIStackView(arrangedSubviews: [
             imageView, autoLayoutLabelsStackView(), getButton
         ])
         
         stackView.spacing = 12
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
-        addSubview(stackView)
+        let imagesStackView = autoLayoutImagesStackView()
         
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        let fullStackView = VerticalStackView(arrangedSubviews: [stackView, imagesStackView], spacing: 12)
+        fullStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(fullStackView)
+        
+        fullStackView.fillSuperview(padding: .init(top: 8, left: 16, bottom: 8, right: 16))
+    }
+    
+    @discardableResult
+    private func autoLayoutImagesStackView() -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [
+            screenshot1ImageView, screenshot2ImageView, screenshot3ImageView
         ])
+        
+        stackView.spacing = 8
+        stackView.distribution = .fillEqually
+        return stackView
     }
 }
