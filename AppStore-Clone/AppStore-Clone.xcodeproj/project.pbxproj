@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		29111D76298DA32600AEF02C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D75298DA32600AEF02C /* AppDelegate.swift */; };
-		29111D78298DA32600AEF02C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D77298DA32600AEF02C /* SceneDelegate.swift */; };
-		29111D7A298DA32600AEF02C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D79298DA32600AEF02C /* ViewController.swift */; };
-		29111D7D298DA32600AEF02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29111D7B298DA32600AEF02C /* Main.storyboard */; };
 		29111D7F298DA32700AEF02C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29111D7E298DA32700AEF02C /* Assets.xcassets */; };
 		29111D82298DA32700AEF02C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29111D80298DA32700AEF02C /* LaunchScreen.storyboard */; };
+		29111D8A298DA56900AEF02C /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D89298DA56900AEF02C /* BaseTabBarController.swift */; };
+		29111D94298DAB2B00AEF02C /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D93298DAB2B00AEF02C /* ImageManager.swift */; };
+		29111D96298DABC200AEF02C /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D95298DABC200AEF02C /* AppsViewController.swift */; };
+		29111D98298DABCE00AEF02C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D97298DABCE00AEF02C /* SearchViewController.swift */; };
+		29111D9A298DABDE00AEF02C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D99298DABDE00AEF02C /* TodayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		29111D72298DA32600AEF02C /* AppStore-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStore-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29111D75298DA32600AEF02C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29111D77298DA32600AEF02C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		29111D79298DA32600AEF02C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		29111D7C298DA32600AEF02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29111D7E298DA32700AEF02C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29111D81298DA32700AEF02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29111D83298DA32700AEF02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29111D89298DA56900AEF02C /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		29111D93298DAB2B00AEF02C /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		29111D95298DABC200AEF02C /* AppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
+		29111D97298DABCE00AEF02C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		29111D99298DABDE00AEF02C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,81 @@
 		29111D74298DA32600AEF02C /* AppStore-Clone */ = {
 			isa = PBXGroup;
 			children = (
-				29111D75298DA32600AEF02C /* AppDelegate.swift */,
-				29111D77298DA32600AEF02C /* SceneDelegate.swift */,
-				29111D79298DA32600AEF02C /* ViewController.swift */,
-				29111D7B298DA32600AEF02C /* Main.storyboard */,
-				29111D7E298DA32700AEF02C /* Assets.xcassets */,
-				29111D80298DA32700AEF02C /* LaunchScreen.storyboard */,
 				29111D83298DA32700AEF02C /* Info.plist */,
+				29111D8E298DAA0600AEF02C /* APP */,
+				29111D92298DAB2000AEF02C /* Managers */,
+				29111D8B298DA9F100AEF02C /* Resources */,
+				29111D8C298DA9F600AEF02C /* Screens */,
+				29111D8D298DA9FA00AEF02C /* UI Components */,
 			);
 			path = "AppStore-Clone";
+			sourceTree = "<group>";
+		};
+		29111D8B298DA9F100AEF02C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29111D80298DA32700AEF02C /* LaunchScreen.storyboard */,
+				29111D7E298DA32700AEF02C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		29111D8C298DA9F600AEF02C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				29111D89298DA56900AEF02C /* BaseTabBarController.swift */,
+				29111D91298DAA7500AEF02C /* Apps */,
+				29111D90298DAA7100AEF02C /* Search */,
+				29111D8F298DAA6D00AEF02C /* Today */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		29111D8D298DA9FA00AEF02C /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		29111D8E298DAA0600AEF02C /* APP */ = {
+			isa = PBXGroup;
+			children = (
+				29111D75298DA32600AEF02C /* AppDelegate.swift */,
+			);
+			path = APP;
+			sourceTree = "<group>";
+		};
+		29111D8F298DAA6D00AEF02C /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				29111D99298DABDE00AEF02C /* TodayViewController.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		29111D90298DAA7100AEF02C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				29111D97298DABCE00AEF02C /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		29111D91298DAA7500AEF02C /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				29111D95298DABC200AEF02C /* AppsViewController.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		29111D92298DAB2000AEF02C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				29111D93298DAB2B00AEF02C /* ImageManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +197,6 @@
 			files = (
 				29111D82298DA32700AEF02C /* LaunchScreen.storyboard in Resources */,
 				29111D7F298DA32700AEF02C /* Assets.xcassets in Resources */,
-				29111D7D298DA32600AEF02C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +207,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29111D7A298DA32600AEF02C /* ViewController.swift in Sources */,
+				29111D98298DABCE00AEF02C /* SearchViewController.swift in Sources */,
+				29111D94298DAB2B00AEF02C /* ImageManager.swift in Sources */,
+				29111D9A298DABDE00AEF02C /* TodayViewController.swift in Sources */,
+				29111D8A298DA56900AEF02C /* BaseTabBarController.swift in Sources */,
+				29111D96298DABC200AEF02C /* AppsViewController.swift in Sources */,
 				29111D76298DA32600AEF02C /* AppDelegate.swift in Sources */,
-				29111D78298DA32600AEF02C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		29111D7B298DA32600AEF02C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				29111D7C298DA32600AEF02C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		29111D80298DA32700AEF02C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,9 +356,9 @@
 				INFOPLIST_FILE = "AppStore-Clone/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +366,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.muratcanaslan.AppStore-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,9 +387,9 @@
 				INFOPLIST_FILE = "AppStore-Clone/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +397,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.muratcanaslan.AppStore-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
