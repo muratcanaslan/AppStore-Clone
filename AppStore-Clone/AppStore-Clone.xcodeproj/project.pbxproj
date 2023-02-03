@@ -15,6 +15,7 @@
 		29111D96298DABC200AEF02C /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D95298DABC200AEF02C /* AppsViewController.swift */; };
 		29111D98298DABCE00AEF02C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D97298DABCE00AEF02C /* SearchViewController.swift */; };
 		29111D9A298DABDE00AEF02C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D99298DABDE00AEF02C /* TodayViewController.swift */; };
+		29111D9E298DB4E700AEF02C /* SearchResultCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111D9D298DB4E700AEF02C /* SearchResultCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		29111D95298DABC200AEF02C /* AppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
 		29111D97298DABCE00AEF02C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		29111D99298DABDE00AEF02C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		29111D9D298DB4E700AEF02C /* SearchResultCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		29111D8D298DA9FA00AEF02C /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				29111D9B298DB4BD00AEF02C /* Cells */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -135,6 +138,22 @@
 				29111D93298DAB2B00AEF02C /* ImageManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		29111D9B298DB4BD00AEF02C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				29111D9C298DB4C600AEF02C /* SearchResultCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		29111D9C298DB4C600AEF02C /* SearchResultCell */ = {
+			isa = PBXGroup;
+			children = (
+				29111D9D298DB4E700AEF02C /* SearchResultCollectionCell.swift */,
+			);
+			path = SearchResultCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +231,7 @@
 				29111D9A298DABDE00AEF02C /* TodayViewController.swift in Sources */,
 				29111D8A298DA56900AEF02C /* BaseTabBarController.swift in Sources */,
 				29111D96298DABC200AEF02C /* AppsViewController.swift in Sources */,
+				29111D9E298DB4E700AEF02C /* SearchResultCollectionCell.swift in Sources */,
 				29111D76298DA32600AEF02C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

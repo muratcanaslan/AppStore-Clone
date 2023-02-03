@@ -14,10 +14,9 @@ class BaseTabBarController: UITabBarController {
         
         viewControllers = createViewControllers()
         tabBar.tintColor = .label
-        tabBar.backgroundColor = .label
+        tabBar.backgroundColor = .tertiarySystemGroupedBackground
         tabBar.isTranslucent = false
-        tabBar.barTintColor = .white
-        tabBar.tintColor = .white
+        tabBar.tintColor = .link
     }
     
     private func createViewControllers() -> [UIViewController] {
@@ -32,9 +31,9 @@ class BaseTabBarController: UITabBarController {
         todayVC.navigationBar.prefersLargeTitles = true
         
         return [
+            searchVC,
             todayVC,
-            appsVC,
-            searchVC
+            appsVC
         ]
     }
 }
