@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SearchViewController: UICollectionViewController {
+final class SearchViewController: BaseCollectionViewController {
     
     private let viewModel = SearchViewModel()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -25,14 +25,6 @@ final class SearchViewController: UICollectionViewController {
         
         setupViewModel()
         setupSearchBar()
-    }
-    
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupSearchBar() {

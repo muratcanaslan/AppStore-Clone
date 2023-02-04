@@ -31,9 +31,9 @@ class BaseTabBarController: UITabBarController {
         todayVC.navigationBar.prefersLargeTitles = true
         
         return [
-            searchVC,
+            appsVC,
             todayVC,
-            appsVC
+            searchVC
         ]
     }
 }
