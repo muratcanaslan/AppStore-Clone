@@ -14,9 +14,9 @@ class SearchResultCollectionCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
         imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 12
         return imageView
     }()
@@ -75,8 +75,9 @@ class SearchResultCollectionCell: UICollectionViewCell {
     
     private func createScreenshotImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = .black
-        imageView.layer.cornerRadius = 4
+        imageView.backgroundColor = .white
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 12
         return imageView
     }
     
@@ -99,24 +100,22 @@ class SearchResultCollectionCell: UICollectionViewCell {
             imageView, autoLayoutLabelsStackView(), getButton
         ])
         
-        stackView.spacing = 12
+        stackView.spacing = 16
         stackView.alignment = .center
-        let imagesStackView = autoLayoutImagesStackView()
         
-        let fullStackView = VerticalStackView(arrangedSubviews: [stackView, imagesStackView], spacing: 12)
+        let fullStackView = VerticalStackView(arrangedSubviews: [stackView, autoLayoutImagesStackView()], spacing: 12)
         fullStackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(fullStackView)
         
         fullStackView.fillSuperview(padding: .init(top: 8, left: 16, bottom: 8, right: 16))
     }
     
-    @discardableResult
     private func autoLayoutImagesStackView() -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: [
             screenshot1ImageView, screenshot2ImageView, screenshot3ImageView
         ])
         
-        stackView.spacing = 8
+        stackView.spacing = 12
         stackView.distribution = .fillEqually
         return stackView
     }
@@ -127,5 +126,9 @@ class SearchResultCollectionCell: UICollectionViewCell {
         nameLabel.text = model.trackName
         categoryLabel.text = model.primaryGenreName
         ratingsLabel.text = "Ratings: \(rating)"
+        imageView.downloadedFrom(url: model.artworkUrl100)
+        screenshot1ImageView.downloadedFrom(url: model.screenshotUrls[0])
+        screenshot2ImageView.downloadedFrom(url: model.screenshotUrls[1])
+        screenshot3ImageView.downloadedFrom(url: model.screenshotUrls[2])
     }
 }

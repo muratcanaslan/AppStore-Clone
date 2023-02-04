@@ -21,6 +21,8 @@
 		29111DA9298DD52A00AEF02C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DA8298DD52A00AEF02C /* SearchResult.swift */; };
 		29111DAB298DD5B200AEF02C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DAA298DD5B200AEF02C /* NetworkManager.swift */; };
 		29111DAD298DDB5000AEF02C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DAC298DDB5000AEF02C /* SearchViewModel.swift */; };
+		29111DB0298DE8A100AEF02C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 29111DAF298DE8A100AEF02C /* Kingfisher */; };
+		29111DB2298DE8D900AEF02C /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DB1298DE8D900AEF02C /* UIImageView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,7 @@
 		29111DA8298DD52A00AEF02C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		29111DAA298DD5B200AEF02C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		29111DAC298DDB5000AEF02C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		29111DB1298DE8D900AEF02C /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29111DB0298DE8A100AEF02C /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				29111DA0298DBD2300AEF02C /* UIView+Ext.swift */,
+				29111DB1298DE8D900AEF02C /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,6 +232,9 @@
 			dependencies = (
 			);
 			name = "AppStore-Clone";
+			packageProductDependencies = (
+				29111DAF298DE8A100AEF02C /* Kingfisher */,
+			);
 			productName = "AppStore-Clone";
 			productReference = 29111D72298DA32600AEF02C /* AppStore-Clone.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +263,9 @@
 				Base,
 			);
 			mainGroup = 29111D69298DA32600AEF02C;
+			packageReferences = (
+				29111DAE298DE8A100AEF02C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 29111D73298DA32600AEF02C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -289,6 +300,7 @@
 				29111D94298DAB2B00AEF02C /* ImageManager.swift in Sources */,
 				29111DAD298DDB5000AEF02C /* SearchViewModel.swift in Sources */,
 				29111D9A298DABDE00AEF02C /* TodayViewController.swift in Sources */,
+				29111DB2298DE8D900AEF02C /* UIImageView+Ext.swift in Sources */,
 				29111D8A298DA56900AEF02C /* BaseTabBarController.swift in Sources */,
 				29111D96298DABC200AEF02C /* AppsViewController.swift in Sources */,
 				29111D9E298DB4E700AEF02C /* SearchResultCollectionCell.swift in Sources */,
@@ -508,6 +520,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		29111DAE298DE8A100AEF02C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		29111DAF298DE8A100AEF02C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29111DAE298DE8A100AEF02C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29111D6A298DA32600AEF02C /* Project object */;
 }
