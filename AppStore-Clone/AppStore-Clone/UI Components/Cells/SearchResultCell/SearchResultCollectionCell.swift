@@ -120,4 +120,12 @@ class SearchResultCollectionCell: UICollectionViewCell {
         stackView.distribution = .fillEqually
         return stackView
     }
+    
+    //MARK: - Configure
+    func configure(with model: SearchResult) {
+        let rating = String(format: "%.2f", model.averageUserRating ?? 0.0)
+        nameLabel.text = model.trackName
+        categoryLabel.text = model.primaryGenreName
+        ratingsLabel.text = "Ratings: \(rating)"
+    }
 }
