@@ -23,4 +23,8 @@ class AppsHeaderCollectionReusableView: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configure(with model: [SocialApp]) {
+        horizontalController.configure(with: model)
+    }
 }

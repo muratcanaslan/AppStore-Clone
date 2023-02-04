@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias OnChange = (SearchViewModelState) -> Void
-
 enum SearchViewModelState {
     case idle
     case loading(Bool)
@@ -17,7 +15,8 @@ enum SearchViewModelState {
 }
 
 final class SearchViewModel {
-    
+    typealias OnChange = (SearchViewModelState) -> Void
+
     var onChange: OnChange?
     
     var keyword: String? {

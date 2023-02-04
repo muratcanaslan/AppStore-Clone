@@ -9,6 +9,14 @@ import UIKit
 
 class AppsHeaderHorizontalViewController: BaseCollectionViewController {
     
+    private var model = [SocialApp]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,16 +29,21 @@ class AppsHeaderHorizontalViewController: BaseCollectionViewController {
             layout.scrollDirection = .horizontal
         }
     }
+    
+    func configure(with model: [SocialApp]) {
+        self.model = model
+    }
 }
 
 //MARK: - CollectionView DataSource
 extension AppsHeaderHorizontalViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return model.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderCollectionCell.reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderCollectionCell.reuseIdentifier, for: indexPath) as? AppsHeaderCollectionCell else { return .init() }
+        cell.configure(with: model[indexPath.item])
         return cell
     }
 }

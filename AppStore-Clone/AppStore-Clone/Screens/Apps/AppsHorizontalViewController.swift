@@ -14,6 +14,14 @@ enum Spacing {
 
 final class AppsHorizontalViewController: BaseCollectionViewController {
     
+    private var results: [FeedResult] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,16 +32,21 @@ final class AppsHorizontalViewController: BaseCollectionViewController {
             layout.scrollDirection = .horizontal
         }
     }
+    
+    func configure(with model: [FeedResult]) {
+        results = model
+    }
 }
 
 //MARK: - CollectionView DataSource
 extension AppsHorizontalViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return results.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCollectionCell.reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCollectionCell.reuseIdentifier, for: indexPath) as? AppsRowCollectionCell else { return .init() }
+        cell.configure(with: results[indexPath.row])
         return cell
     }
 }
@@ -48,6 +61,9 @@ extension AppsHorizontalViewController: UICollectionViewDelegateFlowLayout {
         return Spacing.minimumLineSpacing
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return Spacing.minimumLineSpacing
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: Spacing.topBottomPadding, left: 16, bottom: Spacing.topBottomPadding, right: 16)
     }

@@ -13,8 +13,8 @@ class AppsRowCollectionCell: UICollectionViewCell {
     
     let imageView = UIImageView(cornerRadius: 8)
     
-    let nameLabel = UILabel(text: "App Name", font: .systemFont(ofSize: 16))
-    let companyLabel = UILabel(text: "Company Name", font: .systemFont(ofSize: 14))
+    let nameLabel = UILabel(font: .systemFont(ofSize: 16))
+    let companyLabel = UILabel(font: .systemFont(ofSize: 14))
     
     let getButton = UIButton(title: "GET")
     override init(frame: CGRect) {
@@ -57,5 +57,15 @@ class AppsRowCollectionCell: UICollectionViewCell {
     private func autoLayoutButton() {
         getButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         getButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+    }
+    
+    func configure(with model: FeedResult) {
+        companyLabel.text = model.artistName
+        nameLabel.text = model.name
+        if let url = model.artworkUrl100 {
+            imageView.downloadedFrom(url: url)
+        } else {
+            imageView.backgroundColor = .init(white: 0.96, alpha: 1)
+        }
     }
 }

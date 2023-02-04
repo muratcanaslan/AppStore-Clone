@@ -9,6 +9,8 @@ import UIKit
 
 final class AppsViewController: BaseCollectionViewController {
     
+    private let viewModel = AppsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,22 +28,47 @@ final class AppsViewController: BaseCollectionViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: AppsHeaderCollectionReusableView.reuseIdentiifer
         )
+        
+        setupViewModel()
+
+        viewModel.fetchGroups()
+    }
+    
+    private func setupViewModel() {
+        viewModel.onChange = viewObserver
+    }
+    
+    private func viewObserver(state: AppsViewModelState) {
+        switch state {
+        case .idle:
+            break
+        case .loading(let isLoading):
+            isLoading ? startLoading() : stopLoading()
+        case .success:
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        case .failure(let error):
+            break
+        }
     }
 }
 
 //MARK: - Collection View DataSource & Delegate
 extension AppsViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.model.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppGroupCollectionCell.reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppGroupCollectionCell.reuseIdentifier, for: indexPath) as? AppGroupCollectionCell else { return .init() }
+        cell.configure(with: viewModel.model[indexPath.row])
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeaderCollectionReusableView.reuseIdentiifer, for: indexPath)
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeaderCollectionReusableView.reuseIdentiifer, for: indexPath) as? AppsHeaderCollectionReusableView else { return .init() }
+        header.configure(with: viewModel.socialApps)
         return header
     }
     

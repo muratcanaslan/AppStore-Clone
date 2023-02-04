@@ -12,7 +12,7 @@ final class AppGroupCollectionCell: UICollectionViewCell {
     //MARK: - Properties
     static let reuseIdentifier = "AppGroupCollectionCell"
     
-    private let sectionLabel: UILabel = .init(text: "App Section", font: .boldSystemFont(ofSize: 30))
+    private let sectionLabel: UILabel = .init(font: .boldSystemFont(ofSize: 30))
     private let horizontalController = AppsHorizontalViewController()
     
     //MARK: - Lifecycle
@@ -25,6 +25,11 @@ final class AppGroupCollectionCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with model: AppGroup) {
+        self.sectionLabel.text = model.feed?.title ?? "-"
+        horizontalController.configure(with: model.feed?.results ?? [])
     }
     
     //MARK: - UI Helpers
