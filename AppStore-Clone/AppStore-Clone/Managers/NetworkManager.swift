@@ -24,6 +24,24 @@ struct NetworkManager {
     
     private init() { }
     
+    func fetchRequest<T: Decodable>(urlString: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        guard let url = URL(string: urlString) else { return completion(.failure(.urlError)) }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data , error == nil else {
+                completion(.failure(.failedToGetData))
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(result))
+                
+            } catch {
+                completion(.failure(.decodeError))
+            }
+        }.resume()
+    }
+    
     func fetchSearchResults(
         with keyword: String,
         completion: @escaping (Result<SearchResultResponse, NetworkError>) -> Void
@@ -31,67 +49,18 @@ struct NetworkManager {
         guard let urlString = "https://itunes.apple.com/search?term=\(keyword)&entity=software".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return completion(.failure(.urlError))
         }
-        guard let url = URL(string: urlString) else {
-            return completion(.failure(.urlError))
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data , error == nil else {
-                completion(.failure(.failedToGetData))
-                return
-            }
-            do {
-                let result = try JSONDecoder().decode(SearchResultResponse.self, from: data)
-                completion(.success(result))
-                
-            } catch {
-                completion(.failure(.decodeError))
-            }
-        }.resume()
+        fetchRequest(urlString: urlString, completion: completion)
     }
     
     func fetchAppGroup(
         with url: AppGroupUrl,
         completion: @escaping (Result<AppGroup, NetworkError>) -> Void
     ) {
-        guard let url = URL(string: url.rawValue) else {
-            return completion(.failure(.urlError))
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data , error == nil else {
-                completion(.failure(.failedToGetData))
-                return
-            }
-            do {
-                let result = try JSONDecoder().decode(AppGroup.self, from: data)
-                completion(.success(result))
-                
-            } catch {
-                completion(.failure(.decodeError))
-            }
-        }.resume()
+        fetchRequest(urlString: url.rawValue, completion: completion)
     }
     
     func fetchSocialApps(completion: @escaping (Result<[SocialApp], NetworkError>) -> Void) {
         let urlString = "https://api.letsbuildthatapp.com/appstore/social"
-        
-        guard let url = URL(string: urlString) else {
-            return completion(.failure(.urlError))
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data , error == nil else {
-                completion(.failure(.failedToGetData))
-                return
-            }
-            do {
-                let result = try JSONDecoder().decode([SocialApp].self, from: data)
-                completion(.success(result))
-                
-            } catch {
-                completion(.failure(.decodeError))
-            }
-        }.resume()
+        fetchRequest(urlString: urlString, completion: completion)
     }
 }
