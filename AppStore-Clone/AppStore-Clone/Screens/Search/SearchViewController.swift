@@ -9,7 +9,9 @@ import UIKit
 
 final class SearchViewController: UICollectionViewController {
     
-    let viewModel = SearchViewModel()
+    private let viewModel = SearchViewModel()
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var timer = Timer()
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -18,11 +20,11 @@ final class SearchViewController: UICollectionViewController {
         view.backgroundColor = .white
         
         navigationItem.title = "Search"
-        
         collectionView.backgroundColor = .white
         collectionView.register(SearchResultCollectionCell.self, forCellWithReuseIdentifier: SearchResultCollectionCell.reuseIdentifier)
         
         setupViewModel()
+        setupSearchBar()
     }
     
     init() {
@@ -33,9 +35,17 @@ final class SearchViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupSearchBar() {
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+    }
+    
     private func setupViewModel() {
         viewModel.onChange = viewObserver
-        viewModel.fetchSearchResults()
+        viewModel.keyword = ""
     }
     
     private func viewObserver(state: SearchViewModelState) {
@@ -43,7 +53,7 @@ final class SearchViewController: UICollectionViewController {
         case .idle:
             break
         case .loading(let isLoading):
-            break
+            isLoading ? startLoading() : stopLoading()
         case .success:
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -72,5 +82,19 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 360)
+    }
+}
+
+//MARK: - SearchBar Delegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+            self.viewModel.keyword = searchText
+        })
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.keyword = ""
     }
 }

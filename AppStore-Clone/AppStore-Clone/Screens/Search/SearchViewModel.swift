@@ -20,6 +20,11 @@ final class SearchViewModel {
     
     var onChange: OnChange?
     
+    var keyword: String? {
+        didSet {
+            fetchSearchResults()
+        }
+    }
     var results: [SearchResult] = []
     
     init() {
@@ -40,11 +45,13 @@ final class SearchViewModel {
         self.onChange?(state)
     }
     
-    func fetchSearchResults() {
+    private func fetchSearchResults() {
+        
+        if keyword.isNilOrEmpty { removeResults(); return }
         
         emit(state: .loading(true))
         
-        NetworkManager.shared.fetchSearchResults { [weak self] result in
+        NetworkManager.shared.fetchSearchResults(with: keyword ?? "") { [weak self] result in
             
             self?.emit(state: .loading(false))
             
@@ -58,4 +65,10 @@ final class SearchViewModel {
             }
         }
     }
+    
+    private func removeResults() {
+        results = []
+        self.emit(state: .success)
+    }
 }
+

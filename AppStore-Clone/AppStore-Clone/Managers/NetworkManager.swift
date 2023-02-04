@@ -20,10 +20,12 @@ struct NetworkManager {
     private init() { }
     
     func fetchSearchResults(
-        with keyword: String = "instagram",
+        with keyword: String,
         completion: @escaping (Result<SearchResultResponse, NetworkError>) -> Void
     ) {
-        let urlString = "https://itunes.apple.com/search?term=\(keyword)&entity=software"
+        guard let urlString = "https://itunes.apple.com/search?term=\(keyword)&entity=software".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return completion(.failure(.urlError))
+        }
         guard let url = URL(string: urlString) else {
             return completion(.failure(.urlError))
         }

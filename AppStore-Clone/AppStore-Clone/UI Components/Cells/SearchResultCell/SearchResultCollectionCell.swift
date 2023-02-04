@@ -77,6 +77,7 @@ class SearchResultCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .white
         imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .init(white: 0.98, alpha: 1)
         imageView.layer.cornerRadius = 12
         return imageView
     }
@@ -122,13 +123,29 @@ class SearchResultCollectionCell: UICollectionViewCell {
     
     //MARK: - Configure
     func configure(with model: SearchResult) {
-        let rating = String(format: "%.2f", model.averageUserRating ?? 0.0)
+        let rating = String(format: "%.1f", model.averageUserRating ?? 0.0)
         nameLabel.text = model.trackName
         categoryLabel.text = model.primaryGenreName
         ratingsLabel.text = "Ratings: \(rating)"
         imageView.downloadedFrom(url: model.artworkUrl100)
-        screenshot1ImageView.downloadedFrom(url: model.screenshotUrls[0])
-        screenshot2ImageView.downloadedFrom(url: model.screenshotUrls[1])
-        screenshot3ImageView.downloadedFrom(url: model.screenshotUrls[2])
+        
+        if model.screenshotUrls.count > 0 {
+            if let s0 = model.screenshotUrls[0] {
+                screenshot1ImageView.downloadedFrom(url: s0)
+            }
+        }
+        
+        if model.screenshotUrls.count > 1 {
+            if let s1 = model.screenshotUrls[1] {
+                screenshot2ImageView.downloadedFrom(url: s1)
+            }
+        }
+        
+        if model.screenshotUrls.count > 2 {
+            if let s2 = model.screenshotUrls[2]  {
+                screenshot3ImageView.downloadedFrom(url: s2)
+            }
+        }
+        
     }
 }
