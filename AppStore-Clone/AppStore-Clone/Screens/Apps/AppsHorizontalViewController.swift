@@ -12,7 +12,7 @@ enum Spacing {
     static let minimumLineSpacing: CGFloat = 10
 }
 
-final class AppsHorizontalViewController: BaseCollectionViewController {
+final class AppsHorizontalViewController: HorizontalSnappingController {
     
     private var results: [FeedResult] = [] {
         didSet {
@@ -28,9 +28,12 @@ final class AppsHorizontalViewController: BaseCollectionViewController {
         collectionView.register(AppsRowCollectionCell.self,
                                 forCellWithReuseIdentifier: AppsRowCollectionCell.reuseIdentifier)
         
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(
+            top: 0,
+            left: 16,
+            bottom: 0,
+            right: 16
+        )
     }
     
     func configure(with model: [FeedResult]) {
@@ -65,6 +68,6 @@ extension AppsHorizontalViewController: UICollectionViewDelegateFlowLayout {
         return Spacing.minimumLineSpacing
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: Spacing.topBottomPadding, left: 16, bottom: Spacing.topBottomPadding, right: 16)
+        return .init(top: Spacing.topBottomPadding, left: 16, bottom: Spacing.topBottomPadding, right: 0)
     }
 }

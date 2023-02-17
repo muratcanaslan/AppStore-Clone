@@ -21,6 +21,7 @@ final class AppGroupCollectionCell: UICollectionViewCell {
         
         autoLayoutSectionLabel()
         autoLayoutHorizontalController()
+        
     }
     
     required init?(coder: NSCoder) {

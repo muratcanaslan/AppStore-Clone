@@ -40,6 +40,7 @@
 		29111DD5298ED98900AEF02C /* AppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DD4298ED98900AEF02C /* AppsViewModel.swift */; };
 		29111DD7298EDA8A00AEF02C /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DD6298EDA8A00AEF02C /* AppGroup.swift */; };
 		29111DD9298EF02900AEF02C /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DD8298EF02900AEF02C /* SocialApp.swift */; };
+		29F2A32F29A01F270092F7F7 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A32E29A01F270092F7F7 /* HorizontalSnappingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		29111DD4298ED98900AEF02C /* AppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewModel.swift; sourceTree = "<group>"; };
 		29111DD6298EDA8A00AEF02C /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		29111DD8298EF02900AEF02C /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
+		29F2A32E29A01F270092F7F7 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				29111D91298DAA7500AEF02C /* Apps */,
 				29111D90298DAA7100AEF02C /* Search */,
 				29111D8F298DAA6D00AEF02C /* Today */,
+				29F2A32E29A01F270092F7F7 /* HorizontalSnappingController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				29111D96298DABC200AEF02C /* AppsViewController.swift in Sources */,
 				29111D9E298DB4E700AEF02C /* SearchResultCollectionCell.swift in Sources */,
 				29111D76298DA32600AEF02C /* AppDelegate.swift in Sources */,
+				29F2A32F29A01F270092F7F7 /* HorizontalSnappingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
