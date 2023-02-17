@@ -180,10 +180,10 @@
 		29111D91298DAA7500AEF02C /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				29111DD4298ED98900AEF02C /* AppsViewModel.swift */,
 				29111D95298DABC200AEF02C /* AppsViewController.swift */,
 				29111DC5298E8B9400AEF02C /* AppsHorizontalViewController.swift */,
 				29111DCF298ECDFF00AEF02C /* AppsHeaderHorizontalViewController.swift */,
-				29111DD4298ED98900AEF02C /* AppsViewModel.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";

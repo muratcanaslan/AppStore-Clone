@@ -18,6 +18,7 @@ enum AppGroupUrl: String {
     case us = "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json"
     case en = "https://rss.applemarketingtools.com/api/v2/gb/apps/top-free/10/apps.json"
 }
+
 struct NetworkManager {
     
     static let shared = NetworkManager()

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum AppsViewModelState {
     case idle
     case loading(Bool)

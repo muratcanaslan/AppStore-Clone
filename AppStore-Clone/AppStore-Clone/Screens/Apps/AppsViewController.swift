@@ -26,7 +26,7 @@ final class AppsViewController: BaseCollectionViewController {
         collectionView.register(
             AppsHeaderCollectionReusableView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: AppsHeaderCollectionReusableView.reuseIdentiifer
+            withReuseIdentifier: AppsHeaderCollectionReusableView.reuseIdentifier
         )
         
         setupViewModel()
@@ -49,7 +49,7 @@ final class AppsViewController: BaseCollectionViewController {
                 self.collectionView.reloadData()
             }
         case .failure(let error):
-            break
+            print(error.localizedDescription)
         }
     }
 }
@@ -67,7 +67,7 @@ extension AppsViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeaderCollectionReusableView.reuseIdentiifer, for: indexPath) as? AppsHeaderCollectionReusableView else { return .init() }
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeaderCollectionReusableView.reuseIdentifier, for: indexPath) as? AppsHeaderCollectionReusableView else { return .init() }
         header.configure(with: viewModel.socialApps)
         return header
     }
@@ -77,7 +77,7 @@ extension AppsViewController {
     }
 }
 
-//MARK: - Collection View
+//MARK: - Collection View Delegate Flow Layout
 extension AppsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 300)

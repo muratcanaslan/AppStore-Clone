@@ -9,7 +9,7 @@ import UIKit
 
 class AppsHeaderCollectionReusableView: UICollectionReusableView {
        
-    static let reuseIdentiifer = "AppsHeaderCollectionReusableView"
+    static let reuseIdentifier = "AppsHeaderCollectionReusableView"
     
     let horizontalController = AppsHeaderHorizontalViewController()
     
