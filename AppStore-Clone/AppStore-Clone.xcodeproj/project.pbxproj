@@ -41,6 +41,9 @@
 		29111DD7298EDA8A00AEF02C /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DD6298EDA8A00AEF02C /* AppGroup.swift */; };
 		29111DD9298EF02900AEF02C /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29111DD8298EF02900AEF02C /* SocialApp.swift */; };
 		29F2A32F29A01F270092F7F7 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A32E29A01F270092F7F7 /* HorizontalSnappingController.swift */; };
+		29F2A33229A156C10092F7F7 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33129A156C10092F7F7 /* AppDetailViewController.swift */; };
+		29F2A33429A15E840092F7F7 /* AppDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33329A15E840092F7F7 /* AppDetailViewModel.swift */; };
+		29F2A33729A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33629A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		29111DD6298EDA8A00AEF02C /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		29111DD8298EF02900AEF02C /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		29F2A32E29A01F270092F7F7 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
+		29F2A33129A156C10092F7F7 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
+		29F2A33329A15E840092F7F7 /* AppDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewModel.swift; sourceTree = "<group>"; };
+		29F2A33629A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailInformationCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,10 +144,11 @@
 			children = (
 				29111DBE298E86FC00AEF02C /* BaseCollectionViewController.swift */,
 				29111D89298DA56900AEF02C /* BaseTabBarController.swift */,
+				29F2A32E29A01F270092F7F7 /* HorizontalSnappingController.swift */,
+				29F2A33029A156A20092F7F7 /* AppDetail */,
 				29111D91298DAA7500AEF02C /* Apps */,
 				29111D90298DAA7100AEF02C /* Search */,
 				29111D8F298DAA6D00AEF02C /* Today */,
-				29F2A32E29A01F270092F7F7 /* HorizontalSnappingController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 		29111D9B298DB4BD00AEF02C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				29F2A33529A1602C0092F7F7 /* AppDetailInformationCell */,
 				29111DD1298ECF5B00AEF02C /* AppsHeaderCell */,
 				29111DC7298EC6D700AEF02C /* AppsRowCell */,
 				29111DC0298E886300AEF02C /* AppsGroupCell */,
@@ -291,6 +299,23 @@
 				29111DD2298ECF6F00AEF02C /* AppsHeaderCollectionCell.swift */,
 			);
 			path = AppsHeaderCell;
+			sourceTree = "<group>";
+		};
+		29F2A33029A156A20092F7F7 /* AppDetail */ = {
+			isa = PBXGroup;
+			children = (
+				29F2A33129A156C10092F7F7 /* AppDetailViewController.swift */,
+				29F2A33329A15E840092F7F7 /* AppDetailViewModel.swift */,
+			);
+			path = AppDetail;
+			sourceTree = "<group>";
+		};
+		29F2A33529A1602C0092F7F7 /* AppDetailInformationCell */ = {
+			isa = PBXGroup;
+			children = (
+				29F2A33629A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift */,
+			);
+			path = AppDetailInformationCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +407,7 @@
 				29111DAB298DD5B200AEF02C /* NetworkManager.swift in Sources */,
 				29111DCE298ECC3D00AEF02C /* AppsHeaderCollectionReusableView.swift in Sources */,
 				29111D94298DAB2B00AEF02C /* ImageManager.swift in Sources */,
+				29F2A33729A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift in Sources */,
 				29111DD9298EF02900AEF02C /* SocialApp.swift in Sources */,
 				29111DBF298E86FC00AEF02C /* BaseCollectionViewController.swift in Sources */,
 				29111DC9298EC6EA00AEF02C /* AppsRowCollectionCell.swift in Sources */,
@@ -390,6 +416,7 @@
 				29111DAD298DDB5000AEF02C /* SearchViewModel.swift in Sources */,
 				29111D9A298DABDE00AEF02C /* TodayViewController.swift in Sources */,
 				29111DD5298ED98900AEF02C /* AppsViewModel.swift in Sources */,
+				29F2A33429A15E840092F7F7 /* AppDetailViewModel.swift in Sources */,
 				29111DB2298DE8D900AEF02C /* UIImageView+Ext.swift in Sources */,
 				29111DC4298E8A0400AEF02C /* UILabel+Ext.swift in Sources */,
 				29111DBD298DF7BC00AEF02C /* Optional+Ext.swift in Sources */,
@@ -398,6 +425,7 @@
 				29111DD0298ECDFF00AEF02C /* AppsHeaderHorizontalViewController.swift in Sources */,
 				29111DD3298ECF6F00AEF02C /* AppsHeaderCollectionCell.swift in Sources */,
 				29111D96298DABC200AEF02C /* AppsViewController.swift in Sources */,
+				29F2A33229A156C10092F7F7 /* AppDetailViewController.swift in Sources */,
 				29111D9E298DB4E700AEF02C /* SearchResultCollectionCell.swift in Sources */,
 				29111D76298DA32600AEF02C /* AppDelegate.swift in Sources */,
 				29F2A32F29A01F270092F7F7 /* HorizontalSnappingController.swift in Sources */,

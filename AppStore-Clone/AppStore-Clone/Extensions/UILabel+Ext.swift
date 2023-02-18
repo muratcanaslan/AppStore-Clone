@@ -8,9 +8,10 @@
 import UIKit
 
 extension UILabel {
-    convenience init(textColor: UIColor = .black, font: UIFont) {
+    convenience init(textColor: UIColor = .black, font: UIFont, numberOfLines: Int = 1) {
         self.init(frame: .zero)
         self.textColor = textColor
         self.font = font
+        self.numberOfLines = numberOfLines
     }
 }

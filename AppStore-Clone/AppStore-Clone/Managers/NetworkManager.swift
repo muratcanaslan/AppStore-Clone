@@ -64,4 +64,9 @@ struct NetworkManager {
         let urlString = "https://api.letsbuildthatapp.com/appstore/social"
         fetchRequest(urlString: urlString, completion: completion)
     }
+    
+    func fetchAppDetail(id: String, completion: @escaping (Result<SearchResultResponse, NetworkError>) -> Void) {
+        let urlString = "https://itunes.apple.com/lookup?id=\(id)"
+        fetchRequest(urlString: urlString, completion: completion)
+    }
 }

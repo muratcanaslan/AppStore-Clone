@@ -13,7 +13,7 @@ final class AppGroupCollectionCell: UICollectionViewCell {
     static let reuseIdentifier = "AppGroupCollectionCell"
     
     private let sectionLabel: UILabel = .init(font: .boldSystemFont(ofSize: 30))
-    private let horizontalController = AppsHorizontalViewController()
+    let horizontalController = AppsHorizontalViewController()
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {

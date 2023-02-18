@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias DidSelectItem = (FeedResult) -> ()
+
 enum Spacing {
     static let topBottomPadding: CGFloat = 12
     static let minimumLineSpacing: CGFloat = 10
@@ -21,6 +23,8 @@ final class AppsHorizontalViewController: HorizontalSnappingController {
             }
         }
     }
+    
+    var didSelectHandler: DidSelectItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,15 @@ extension AppsHorizontalViewController {
     }
 }
 
+//MARK: - CollectionView Delegate
+extension AppsHorizontalViewController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let app = results[indexPath.item]
+        didSelectHandler?(app)
+    }
+}
+
+//MARK: - CollectionView DelegateFlowLayout
 extension AppsHorizontalViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (view.frame.height - (2 * Spacing.topBottomPadding) - (2 * Spacing.minimumLineSpacing)) / 3
