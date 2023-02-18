@@ -44,6 +44,9 @@
 		29F2A33229A156C10092F7F7 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33129A156C10092F7F7 /* AppDetailViewController.swift */; };
 		29F2A33429A15E840092F7F7 /* AppDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33329A15E840092F7F7 /* AppDetailViewModel.swift */; };
 		29F2A33729A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33629A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift */; };
+		29F2A33A29A175440092F7F7 /* AppDetailPreviewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33929A175440092F7F7 /* AppDetailPreviewCollectionCell.swift */; };
+		29F2A33C29A175FD0092F7F7 /* AppDetailPreviewScreenshotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33B29A175FD0092F7F7 /* AppDetailPreviewScreenshotsController.swift */; };
+		29F2A33F29A177440092F7F7 /* ScreenshotCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2A33E29A177440092F7F7 /* ScreenshotCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		29F2A33129A156C10092F7F7 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 		29F2A33329A15E840092F7F7 /* AppDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewModel.swift; sourceTree = "<group>"; };
 		29F2A33629A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailInformationCollectionCell.swift; sourceTree = "<group>"; };
+		29F2A33929A175440092F7F7 /* AppDetailPreviewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailPreviewCollectionCell.swift; sourceTree = "<group>"; };
+		29F2A33B29A175FD0092F7F7 /* AppDetailPreviewScreenshotsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailPreviewScreenshotsController.swift; sourceTree = "<group>"; };
+		29F2A33E29A177440092F7F7 /* ScreenshotCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,8 @@
 		29111D9B298DB4BD00AEF02C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				29F2A33D29A177330092F7F7 /* ScreenshotCell */,
+				29F2A33829A175240092F7F7 /* PreviewCell */,
 				29F2A33529A1602C0092F7F7 /* AppDetailInformationCell */,
 				29111DD1298ECF5B00AEF02C /* AppsHeaderCell */,
 				29111DC7298EC6D700AEF02C /* AppsRowCell */,
@@ -306,6 +314,7 @@
 			children = (
 				29F2A33129A156C10092F7F7 /* AppDetailViewController.swift */,
 				29F2A33329A15E840092F7F7 /* AppDetailViewModel.swift */,
+				29F2A33B29A175FD0092F7F7 /* AppDetailPreviewScreenshotsController.swift */,
 			);
 			path = AppDetail;
 			sourceTree = "<group>";
@@ -316,6 +325,22 @@
 				29F2A33629A1604A0092F7F7 /* AppDetailInformationCollectionCell.swift */,
 			);
 			path = AppDetailInformationCell;
+			sourceTree = "<group>";
+		};
+		29F2A33829A175240092F7F7 /* PreviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				29F2A33929A175440092F7F7 /* AppDetailPreviewCollectionCell.swift */,
+			);
+			path = PreviewCell;
+			sourceTree = "<group>";
+		};
+		29F2A33D29A177330092F7F7 /* ScreenshotCell */ = {
+			isa = PBXGroup;
+			children = (
+				29F2A33E29A177440092F7F7 /* ScreenshotCollectionCell.swift */,
+			);
+			path = ScreenshotCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +422,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				29111DBB298DF64000AEF02C /* UIApplication+Ext.swift in Sources */,
+				29F2A33A29A175440092F7F7 /* AppDetailPreviewCollectionCell.swift in Sources */,
 				29111DA1298DBD2300AEF02C /* UIView+Ext.swift in Sources */,
+				29F2A33F29A177440092F7F7 /* ScreenshotCollectionCell.swift in Sources */,
 				29111DA4298DBD9900AEF02C /* VerticalStackView.swift in Sources */,
 				29111DD7298EDA8A00AEF02C /* AppGroup.swift in Sources */,
 				29111DB7298DF5F700AEF02C /* UIViewController+Ext.swift in Sources */,
@@ -417,6 +444,7 @@
 				29111D9A298DABDE00AEF02C /* TodayViewController.swift in Sources */,
 				29111DD5298ED98900AEF02C /* AppsViewModel.swift in Sources */,
 				29F2A33429A15E840092F7F7 /* AppDetailViewModel.swift in Sources */,
+				29F2A33C29A175FD0092F7F7 /* AppDetailPreviewScreenshotsController.swift in Sources */,
 				29111DB2298DE8D900AEF02C /* UIImageView+Ext.swift in Sources */,
 				29111DC4298E8A0400AEF02C /* UILabel+Ext.swift in Sources */,
 				29111DBD298DF7BC00AEF02C /* Optional+Ext.swift in Sources */,

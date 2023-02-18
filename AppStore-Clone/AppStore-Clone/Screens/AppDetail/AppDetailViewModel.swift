@@ -16,12 +16,17 @@ enum AppDetailModelState {
     case failure(NetworkError)
 }
 
+enum AppDetailCellType {
+    case information(model: SearchResult)
+    case preview(model: [URL])
+}
+
 final class AppDetailViewModel {
     
     var onChange: OnChange?
     let model: FeedResult
     
-    var results: [SearchResult] = [] {
+    var cells: [AppDetailCellType] = [] {
         didSet {
             emit(state: .success)
         }
@@ -34,16 +39,24 @@ final class AppDetailViewModel {
     func fetchAppDetail() {
         guard let appId = model.id else { return }
         NetworkManager.shared.fetchAppDetail(id: appId) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .failure(let error):
-                self?.emit(state: .failure(error))
+                self.emit(state: .failure(error))
             case .success(let response):
-                self?.results = response.results 
+                if let model = response.results.first {
+                    self.cells.append(.information(model: model))
+                    self.cells.append(.preview(model: self.screenshots(model: model)))
+                }
             }
         }
     }
     
     func emit(state: AppDetailModelState) {
         self.onChange?(state)
+    }
+    
+    private func screenshots(model: SearchResult) -> [URL] {
+        return model.screenshotUrls.compactMap({ $0 })
     }
 }
