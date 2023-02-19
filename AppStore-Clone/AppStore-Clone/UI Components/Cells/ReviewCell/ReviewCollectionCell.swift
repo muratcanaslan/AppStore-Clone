@@ -11,9 +11,9 @@ class ReviewCollectionCell: UICollectionViewCell {
     
     static let reuseIdentifier = "ReviewCollectionCell"
     
-    let titleLabel = UILabel(font: .systemFont(ofSize: 24, weight: .bold))
-    let authorLabel = UILabel(font: .systemFont(ofSize: 24, weight: .regular))
-    let bodyLabel = UILabel(textColor: .gray, font: .systemFont(ofSize: 14, weight: .medium), numberOfLines: 5)
+    let titleLabel = UILabel(font: .systemFont(ofSize: 16, weight: .bold))
+    let authorLabel = UILabel(textColor: .systemGray, font: .systemFont(ofSize: 16, weight: .regular))
+    let bodyLabel = UILabel(font: .systemFont(ofSize: 16, weight: .regular), numberOfLines: 5)
     let starsStackView: UIStackView = {
         var arrangedSubviews = [UIView]()
         (0..<5).forEach({ _ in
@@ -43,7 +43,7 @@ class ReviewCollectionCell: UICollectionViewCell {
     }
     
     func setupUI() {
-        self.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        self.backgroundColor = .systemGray6
         self.layer.cornerRadius = 16
         self.clipsToBounds = true
     }
