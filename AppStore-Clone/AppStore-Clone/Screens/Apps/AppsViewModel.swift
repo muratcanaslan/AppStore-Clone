@@ -40,7 +40,6 @@ final class AppsViewModel {
             
         NetworkManager.shared.fetchSocialApps { [weak self] result in
             dispatchGroup.leave()
-            self?.emit(state: .loading(false))
             
             switch result {
             case .failure(let error):
@@ -54,7 +53,6 @@ final class AppsViewModel {
             
         NetworkManager.shared.fetchAppGroup(with: .tr) { [weak self] result in
             dispatchGroup.leave()
-            self?.emit(state: .loading(false))
             
             switch result {
             case .failure(let error):
@@ -68,7 +66,6 @@ final class AppsViewModel {
         
         NetworkManager.shared.fetchAppGroup(with: .us) { [weak self] result in
             dispatchGroup.leave()
-            self?.emit(state: .loading(false))
             
             switch result {
             case .failure(let error):
@@ -82,7 +79,6 @@ final class AppsViewModel {
         
         NetworkManager.shared.fetchAppGroup(with: .en) { [weak self] result in
             dispatchGroup.leave()
-            self?.emit(state: .loading(false))
             
             switch result {
             case .failure(let error):
@@ -94,6 +90,7 @@ final class AppsViewModel {
         
         dispatchGroup.notify(queue: .main) {
             print("completed your dispatch group task")
+            self.emit(state: .loading(false))
             self.emit(state: .success)
         }
     }

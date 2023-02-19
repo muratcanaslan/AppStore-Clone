@@ -72,7 +72,7 @@ class AppDetailInformationCollectionCell: UICollectionViewCell {
         descriptionLabel.text = model.description
         appIcon.downloadedFrom(url: model.artworkUrl100)
         releaseNotesLabel.text = model.releaseNotes
-        versionLabel.text = "1.0.9"
+        versionLabel.text = model.version
         priceButton.setTitle(model.formattedPrice, for: .normal)
     }
 }

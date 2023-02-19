@@ -20,7 +20,8 @@ final class AppDetailViewController: BaseCollectionViewController {
         
         collectionView.register(AppDetailInformationCollectionCell.self, forCellWithReuseIdentifier: AppDetailInformationCollectionCell.reuseIdentifier)
         collectionView.register(AppDetailPreviewCollectionCell.self, forCellWithReuseIdentifier: AppDetailPreviewCollectionCell.reuseIdentifier)
-
+        collectionView.register(AppDetailReviewCollectionCell.self, forCellWithReuseIdentifier: AppDetailReviewCollectionCell.reuseIdentifier)
+        
         setupViewModel()
         
         viewModel.fetchAppDetail()
@@ -71,6 +72,10 @@ extension AppDetailViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppDetailPreviewCollectionCell.reuseIdentifier, for: indexPath) as? AppDetailPreviewCollectionCell else { return .init() }
             cell.configure(with: model)
             return cell
+        case .rating(let model):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppDetailReviewCollectionCell.reuseIdentifier, for: indexPath) as? AppDetailReviewCollectionCell else { return .init() }
+            cell.configure(with: model)
+            return cell
         }
     }
 }
@@ -94,6 +99,8 @@ extension AppDetailViewController: UICollectionViewDelegateFlowLayout {
             
             let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
             return .init(width: view.frame.width, height: estimatedSize.height)
+        case .rating:
+            return .init(width: view.frame.width, height: 280)
         }
     }
 }
