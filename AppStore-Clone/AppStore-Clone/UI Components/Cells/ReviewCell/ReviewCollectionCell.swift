@@ -72,7 +72,7 @@ class ReviewCollectionCell: UICollectionViewCell {
         
         for (index, view) in starsStackView.arrangedSubviews.enumerated() {
             if let rating = Int(model.rating.label) {
-                view.alpha = index >= rating ? 0 : 1
+                view.alpha = index >= rating ? 0.3 : 1
             }
         }
     }
